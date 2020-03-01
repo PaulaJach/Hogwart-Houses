@@ -74,7 +74,7 @@ class Houses extends React.Component {
         return (
             
             <div className="container">
-                <div className="housesSection">
+                <div className="section">
                         <div className="text-center d-flex">
                         {  
                             this.state.houses !== undefined && this.state.houses.map((house, _id) => {

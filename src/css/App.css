@@ -5,6 +5,9 @@ body {
     background-image: url('../assets/hogwart.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    /* font-family: 'Princess Sofia'; */
+    /* font-family: 'Merienda One' ; */
+    font-family: 'Berkshire Swash' ;
     
 }
 
@@ -23,7 +26,7 @@ body {
     margin: auto;       
 }
 
-.housesSection {
+.section {
     position: absolute;
     z-index: 20;
     top: 20%;

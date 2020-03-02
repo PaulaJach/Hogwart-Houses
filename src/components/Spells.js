@@ -1,29 +1,24 @@
 import React from 'react';
 import Spell from './Spell';
+import Autocomplete from './Autocomplete';
 import axios from 'axios';
+import {DebounceInput} from 'react-debounce-input';
 
 class Spells extends React.Component {
     constructor() {
         super();
-        this.spells = []
-
+        
         this.state = {
             searchInput: '',
             spells: [],
-            oneSpell: {}
-            
+            oneSpell: {},
+            autocomplete: false
         };
 
-
         this.inputChangeHandler = e => {
-            
             const value = e.target.value;
-            
-            this.setState({searchInput: value, spells: []});
+            this.setState({searchInput: value}); 
             console.log(value);
-            
-            
-
         }
         
 
@@ -38,68 +33,57 @@ class Spells extends React.Component {
                 
            
             if (response.data.length !== 0) {
-                console.log("added")
-                this.spells = response.data
-                
+                this.state.spells = response.data    
             }    
         };
 
         getSpells();
 
         this.onSubmitHandler = (e) => {
-            console.log(this.spells)
-
-
             e.preventDefault();
-            
-            console.log("test" + this.spells)
-            if (this.spells.length !== 0) {
+            if (this.state.spells.length !== 0) {
                 let found = []
-                this.spells.find(spell => {
-                    if (spell.spell.includes('Ala')) {
-                        found.push(spell)
+                this.state.spells.find(spell => {
+                    if (spell.spell.toLowerCase().includes(this.state.searchInput.toLowerCase())) {
+                        found.push(spell);
                     }
                 })
 
-                console.log(found)
-
-            }
-            
-
-            
+                console.log(found);
+              
+            } 
         }
-
     }
     render() {
         return (
+            
             <div className="container">
                 <div className="section">
                     <h3>You are in spells liblary !</h3>
 
                     <form type="submit" onSubmit={this.onSubmitHandler}>
-                        <input value={this.state.searchInput} placeholder="search for spell..." onChange={this.inputChangeHandler} />
+                        <DebounceInput 
+                        debounceTimeout={800}
+                        value={this.state.searchInput} 
+                        placeholder="search for spell..." 
+                        onChange={this.inputChangeHandler}
+                         />
                     </form>
-                    
 
                     <div>
                     {  
-                        this.state.spells !== undefined && this.state.spells.map((spell, _id) => {
-                            return (
-                                <Spell key={spell._id} type={spell.type} spell={spell.spell} effect={spell.effect}/> 
+                        // this.state.spells !== undefined && this.state.spells.map((spell, _id) => {
+                        //     return (
+                        //         <Spell key={spell._id} type={spell.type} spell={spell.spell} effect={spell.effect}/> 
                                    
-                            )
-                        })
+                        //     )
+                        // })
                     }
                     </div>
-
-
                 </div>
-
-
-
             </div>
+            
         )
     }
-   
 }
 export default Spells;

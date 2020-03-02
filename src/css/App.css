@@ -45,3 +45,27 @@ body {
     margin: 30px;
 
 }
+.input {
+    width: 300px;
+}
+
+.autocompleteContainer {
+    background-color: rgba(255, 255, 255, .6);
+    
+}
+
+.listItems {
+    margin: 0;
+}
+.listItem {
+    list-style: none;
+    margin: 0;
+    
+}
+.listItem p {
+    margin: 0;
+}
+.listItem p:hover {
+    cursor: pointer;
+    background-color: grey;
+}

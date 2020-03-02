@@ -5,7 +5,7 @@ const Spell = (props) => {
         return (<div></div>)
     }
     return (
-        <div>
+        <div >{props.searched}
             <h5>Name of spell: {props.spell}</h5>
             <h6>Type of spell: {props.type}</h6>
             <p>meaning of spell: {props.effect}</p>

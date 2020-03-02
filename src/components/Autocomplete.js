@@ -1,11 +1,16 @@
 import React from 'react';
 
 const Autocomplete = (props) => {
-    
+    if (props.spell === undefined) {
+        return (<div></div>)
+    }
     return (
-        <div>
-            <h5>Name of spell: {props.spell}</h5>
-            <h6>Type of spell: {props.type}</h6>
+        <div className="autocompleteContainer">
+            <ul className="listItems">
+                <li className="listItem" onClick={props.clicked}>
+                    <p>{props.spell}</p>
+                </li> 
+            </ul>
         </div>
     );
 };

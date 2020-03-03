@@ -10,6 +10,6 @@ const Spell = (props) => {
             <h6>Type of spell: {props.type}</h6>
             <p>meaning of spell: {props.effect}</p>
         </div>
-    )
-}
+    );
+};
 export default Spell;

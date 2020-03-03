@@ -2,6 +2,7 @@ import React from 'react';
 import Spell from './Spell';
 import Autocomplete from './Autocomplete';
 import axios from 'axios';
+import API_KEY from '../data/apiKey';
 import {DebounceInput} from 'react-debounce-input';
 
 class Spells extends React.Component {
@@ -13,31 +14,15 @@ class Spells extends React.Component {
             spells: [],
             searchedSpell: false,
             foundSpells: [],
+            showAutocomplete: false,   
         };
 
         this.inputChangeHandler = (e) => {
-            // const value = e.target.value;
-            this.setState({searchInput: e.target.value}); 
+            this.setState({searchInput: e.target.value, showAutocomplete: true, searchedSpell: false}); 
             this.findTheSpell();
-            // if(value.length !== 0) {
-            //     let found = [];
-                
-            //     this.state.spells.find(spell => {
-            //         if (spell.spell.toLowerCase().includes(this.state.searchInput.toLowerCase())) {
-            //             found.push(spell);
-            //         }
-            //     });
-    
-            //     this.setState({foundSpells: found})
-            //     if(found !== []) {
-            //         this.setState({searchedSpell: true});
-            //     }
-            // } else {
-            //     this.setState({foundSpells: []});
-            // }
         }
         
-        const HarryPotterAPIKey = '$2a$10$xuF.aQwUrwwwEzH9qqYId.ugE651f2d42XaYUvKOVX8wLvFN1.Zy.';
+        const HarryPotterAPIKey = API_KEY;
 
         const getSpells = async () => {
             const response = await axios.get('https://www.potterapi.com/v1/spells', {
@@ -51,95 +36,70 @@ class Spells extends React.Component {
         };
         getSpells();
 
-        this.onSubmitHandler = (e) => {
-            e.preventDefault();
-            if (this.state.spells.length !== 0) {
-                let found = []
-                this.state.spells.find(spell => {
-                    if (spell.spell.toLowerCase().includes(this.state.searchInput.toLowerCase())) {
-                        found.push(spell);
-                    }
-                })
-                console.log(found);
-            } 
-        }
-
         this.onClickHandler = (e) => {
-            this.findTheSpell(e);
-
+            this.findTheSpell(e.currentTarget.innerText);
             this.setState({
                 searchedSpell: true, 
                 searchInput: e.currentTarget.innerText,
-                searchedSpell: true,
-                foundSpells: []
-            });
-        }
-    }
+                showAutocomplete: false,
+            });  
+        }    
+    };
 
-
-    findTheSpell() {
-       const value = this.state.searchInput
+    findTheSpell(name) {
+       const value = name === undefined ? this.state.searchInput : name;
         if(value.length !== 0) {
             let found = [];
-            
             this.state.spells.find(spell => {
-                if (spell.spell.toLowerCase().includes(this.state.searchInput.toLowerCase())) {
+                if (spell.spell.toLowerCase().includes(value.toLowerCase())) {
                     found.push(spell);
                 }
             });
-            
             this.setState({foundSpells: found})
-            if(found !== []) {
-                this.setState({searchedSpell: true});
-            }
-        } else {
-            this.setState({foundSpells: []});
         }
-    }
+    };
 
     render() {
-        
-        return (
-            <div className="container">
-                <div className="section">
-                    <h3>You are in spells liblary !</h3>
-
-                    <form type="submit" onSubmit={this.onSubmitHandler} >
-                        <DebounceInput className="input"
+        let showSuggestion;
+        if(this.state.foundSpells) {
+          showSuggestion = ( this.state.foundSpells.map((spell, _id) => {
+                return <Spell 
+                    key={spell._id} 
+                    searched={this.state.searchedSpell} 
+                    spell={spell.spell} 
+                    effect={spell.effect} 
+                    type={spell.type}/>
+            })
+        )
+    };   
+     
+    return (
+        <div className="container">
+            <div className="section">
+                <h3>You are in spells liblary !</h3>
+                <form type="submit" onSubmit={this.onSubmitHandler} >
+                    <DebounceInput className="input"
                             type="text"
                             debounceTimeout={500}
                             value={this.state.searchInput} 
                             placeholder="search for spell..." 
-                            onChange={this.inputChangeHandler}
-                            
-                        />
-                       
-                        {
-                            this.state.foundSpells.map((spell, _id) => {
-                                return <Autocomplete key={spell._id} effect={spell.effect} spell={spell.spell} clicked={this.onClickHandler}/>
+                            onChange={this.inputChangeHandler}   
+                    />
+                    {
+                        this.state.showAutocomplete && this.state.foundSpells.map((spell, _id) => {
+                                return <Autocomplete 
+                                key={spell._id} 
+                                effect={spell.effect} 
+                                spell={spell.spell} 
+                                clicked={this.onClickHandler}/>
                             })
-                        }
-                       
-                    </form>
-                        
-                    <div>
-                      
-                    
-                    {  
-                        // this.state.spells !== undefined && this.state.spells.map((spell, _id) => {
-                        //     return (
-                        //         <Spell key={spell._id} type={spell.type} spell={spell.spell} effect={spell.effect}/> 
-                                   
-                        //     )
-                        // })
                     }
-                    {/* <Spell serched={this.state.searchedSpell} key={spell._id} effect={spell.effect} show={() => this.showSearchedSpell}/> */}
-                    </div>
-                    
+                </form>   
+                <div> 
+                    { this.state.searchedSpell && showSuggestion }
                 </div>
             </div>
-            
-        )
-    }
+        </div>
+    )};
 }
 export default Spells;

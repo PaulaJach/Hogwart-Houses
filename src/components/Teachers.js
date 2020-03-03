@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Teachers = () => {
-    return (
-        <div>Teachers</div>
-    )
-}
+class Teachers extends React.Component {
+    render() {
+        return (
+            <div>Teachers</div>
+        )
+    }
+    
+};
 export default Teachers;

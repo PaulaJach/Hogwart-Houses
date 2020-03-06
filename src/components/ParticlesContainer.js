@@ -8,7 +8,7 @@ const ParticlesContainer = () => {
 
                 "particles": {
                     "number": {
-                        "value": 160,
+                        "value": 180,
                         "density": {
                             "enable": false
                         }
@@ -26,7 +26,7 @@ const ParticlesContainer = () => {
                     },
                     "move": {
                         "random": true,
-                        "speed": 1,
+                        "speed": 2,
                         "direction": "top",
                         "out_mode": "out"
                     }
@@ -60,9 +60,11 @@ const ParticlesContainer = () => {
         }
         style = {{
             "height": "100vh",
-            "width": "100%",
+            "width": "100vw",
             "position": "relative",
             "zIndex": -1,
+            "padding": 0,
+            "margin": 0
         }} />
        
     )

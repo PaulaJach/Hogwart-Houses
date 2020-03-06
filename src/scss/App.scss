@@ -1,5 +1,10 @@
-body {
+@import './menu';
+
+* {
     box-sizing: border-box;
+  }
+
+body {
     padding: 0;
     margin: 0;
     background-image: url('../assets/hogwart.jpg');
@@ -7,23 +12,27 @@ body {
     background-size: cover;
     /* font-family: 'Princess Sofia'; */
     /* font-family: 'Merienda One' ; */
-    font-family: 'Berkshire Swash' ;
+    font-family: 'Berkshire Swash' ; 
+}
+
+.landing-page {
+    width: 100vw;
+    height: 100vh;
     
 }
-
-.container {
-    height: 100%;
+.btn-landing_page {
+    width: 7rem;
 }
-
 .App {
     position: absolute;
     z-index: 20;
     top: 30%;
-    left: 40px;
     text-align: center;
     padding: 40px;   
     color: white;
-    margin: auto;       
+    margin: auto; 
+    width: 100%;  
+        
 }
 
 .section {
@@ -36,9 +45,40 @@ body {
 
 .menu-link {
     text-decoration: none;
-    color: lightblue;
+    color: white;
+    position: relative; 
+    padding: 5px;
 }
 
+.menu-link::before,
+.menu-link::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: lightgrey;
+    position: absolute;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform .5s;
+   
+}
+.menu-link::after {
+    bottom: 0;
+    transform-origin: right;
+}
+.menu-link::before {
+    top: 0;
+    transform-origin: left;
+}
+
+.menu-link:hover {
+    text-decoration: none;
+    color: lightgrey;
+}
+.menu-link:hover::before,
+.menu-link:hover::after {
+    transform: scaleX(1);
+}
 
 .house {
     padding: 10px;

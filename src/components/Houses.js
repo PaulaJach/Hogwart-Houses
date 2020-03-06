@@ -5,7 +5,7 @@ import House from './House';
 import Button from './Button';
 import RandomHouse from './RandomHouse';
 
-import '../css/App.css';
+import '../scss/App.scss';
 
 class Houses extends React.Component {
     constructor() {

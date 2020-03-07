@@ -1,14 +1,19 @@
 import React from 'react';
 
+import '../scss/_spellsSection.scss';
+
 const Spell = (props) => {
     if (props.spell === undefined) {
         return (<div></div>)
     }
     return (
-        <div >{props.searched}
-            <h5>Name of spell: {props.spell}</h5>
-            <h6>Type of spell: {props.type}</h6>
-            <p>meaning of spell: {props.effect}</p>
+        <div className="spells-description mt-5 py-5">{props.searched}
+            <h6>name of spell:</h6> 
+            <h4>{props.spell}</h4>
+            <h6>type of spell:</h6>
+            <h5> {props.type}</h5>
+            <h6>effect:</h6> 
+            <h5>{props.effect}</h5>
         </div>
     );
 };

@@ -1,0 +1,58 @@
+.spells-bg {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/backgrounds/library.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.spells-title {
+    padding: 20px;
+    margin-top: 10px;
+    text-shadow: 2px 2px 2px black;
+    letter-spacing: 1px;
+}
+
+.spells-input {
+    width: 400px;
+    
+}
+
+.autocompleteContainer {
+    background-color: rgba(255, 255, 255, .6);
+    width: 400px;
+    margin: auto;   
+}
+
+
+.listItems {
+    width: 400px;
+    margin: auto;  
+    padding: 0;
+    
+}
+.listItem {
+    list-style: none;
+    margin: auto;
+    width: 400px;
+    
+}
+.listItem p {
+    width: 400px;
+    margin: auto;
+}
+.listItem p:hover {
+    cursor: pointer;
+    background-color: grey;
+}
+
+.spells-description {
+    // border: 1px solid white;
+    width: 400px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, .5);
+    box-shadow: 2px 2px 3px black;
+    text-shadow: 2px 2px 2px black;
+    letter-spacing: 1px;
+}

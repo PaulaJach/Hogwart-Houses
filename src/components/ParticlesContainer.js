@@ -4,8 +4,8 @@ import Particles from 'react-particles-js';
 
 const ParticlesContainer = () => {
     return (     
-        <Particles params = {{
-
+        <Particles params = {
+            {
                 "particles": {
                     "number": {
                         "value": 180,
@@ -54,18 +54,21 @@ const ParticlesContainer = () => {
                             "duration": 4
                         }
                     }
-                }
+                },
+               
+
 
             }
         }
         style = {{
-            "height": "100vh",
-            "width": "100vw",
-            "position": "relative",
-            "zIndex": -1,
+            "height": "100%",
+            "width": "100%",
+            "position": "absolute",
+            "zIndex": 20,
             "padding": 0,
             "margin": 0
-        }} />
+        }
+    } />
        
     )
 }

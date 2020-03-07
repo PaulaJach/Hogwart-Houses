@@ -6,6 +6,7 @@ import Button from './Button';
 import RandomHouse from './RandomHouse';
 
 import '../scss/App.scss';
+import '../scss/_housesSection.scss';
 
 class Houses extends React.Component {
     constructor() {
@@ -60,8 +61,8 @@ class Houses extends React.Component {
         };
 
         return (
-            <div className="container">
-                <div className="section">
+            <div className="houses-bg">
+                <div className="section container">
                         <div className="text-center d-flex">
                         {  
                             this.state.houses !== undefined && this.state.houses.map((house, _id) => {

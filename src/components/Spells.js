@@ -5,6 +5,8 @@ import axios from 'axios';
 import API_KEY from '../data/apiKey';
 import {DebounceInput} from 'react-debounce-input';
 
+import '../scss/_spellsSection.scss';
+
 class Spells extends React.Component {
     constructor() {
         super();
@@ -74,26 +76,28 @@ class Spells extends React.Component {
     };   
      
     return (
-        <div className="container">
-            <div className="section">
-                <h3>You are in spells liblary !</h3>
+        <div className="spells-bg d-flex justify-content-center">
+            <div className="section container d-flex-column justify-content-center">
+                <h2 className="spells-title">You are in spells library !</h2>
                 <form type="submit" onSubmit={this.onSubmitHandler} >
-                    <DebounceInput className="input"
+                    <DebounceInput className="spells-input"
                             type="text"
                             debounceTimeout={500}
                             value={this.state.searchInput} 
                             placeholder="search for spell..." 
                             onChange={this.inputChangeHandler}   
                     />
-                    {
-                        this.state.showAutocomplete && this.state.foundSpells.map((spell, _id) => {
-                                return <Autocomplete 
-                                key={spell._id} 
-                                effect={spell.effect} 
-                                spell={spell.spell} 
-                                clicked={this.onClickHandler}/>
-                            })
-                    }
+                    <div>
+                        {
+                            this.state.showAutocomplete && this.state.foundSpells.map((spell, _id) => {
+                                    return <Autocomplete 
+                                    key={spell._id} 
+                                    effect={spell.effect} 
+                                    spell={spell.spell} 
+                                    clicked={this.onClickHandler}/>
+                                })
+                        }
+                    </div>
                 </form>   
                 <div> 
                     { this.state.searchedSpell && showSuggestion }

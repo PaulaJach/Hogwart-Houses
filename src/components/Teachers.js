@@ -1,7 +1,6 @@
 import React from 'react';
 import API_KEY from '../data/apiKey';
 
-import '../scss/_teachersSection.scss';
 
 class Teachers extends React.Component {
     render() {

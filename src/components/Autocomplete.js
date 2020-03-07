@@ -1,6 +1,5 @@
 import React from 'react';
 
-import '../scss/_spellsSection.scss';
 
 const Autocomplete = (props) => {
     if (props.spell === undefined) {

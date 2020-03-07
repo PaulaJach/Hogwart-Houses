@@ -5,7 +5,6 @@ import axios from 'axios';
 import API_KEY from '../data/apiKey';
 import {DebounceInput} from 'react-debounce-input';
 
-import '../scss/_spellsSection.scss';
 
 class Spells extends React.Component {
     constructor() {

@@ -1,4 +1,7 @@
 @import './menu';
+@import './housesSection';
+@import './spellsSection';
+@import './teachersSection';
 
 * {
     box-sizing: border-box;
@@ -40,15 +43,10 @@ body {
     z-index: 20;
     top: 20%;
     color: white;
-    text-align: center;
-    
+    text-align: center;  
 }
 
-.house {
-    padding: 10px;
-    margin: 30px;
 
-}
 
 
 

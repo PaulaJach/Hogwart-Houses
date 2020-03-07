@@ -5,9 +5,9 @@ const RandomHouse = (props) => {
         return (<div></div>)
     }
     return (
-        <div>
+        <div className="mt-4 random-house">
             <h3>Congratulations!</h3>
-            <h4><b>You have been assigned to {props.random} House</b></h4>
+            <h4>You have been assigned to {props.random} House</h4>
         </div>
     )
 }

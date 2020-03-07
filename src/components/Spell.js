@@ -1,6 +1,5 @@
 import React from 'react';
 
-import '../scss/_spellsSection.scss';
 
 const Spell = (props) => {
     if (props.spell === undefined) {

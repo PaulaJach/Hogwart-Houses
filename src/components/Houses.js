@@ -5,8 +5,6 @@ import House from './House';
 import Button from './Button';
 import RandomHouse from './RandomHouse';
 
-import '../scss/App.scss';
-import '../scss/_housesSection.scss';
 
 class Houses extends React.Component {
     constructor() {
@@ -61,9 +59,9 @@ class Houses extends React.Component {
         };
 
         return (
-            <div className="houses-bg">
-                <div className="section container">
-                        <div className="text-center d-flex">
+            <div className="houses-bg d-flex justify-content-center">
+                <div className="section text-center container d-flex-row justify-content-center align-items-center">
+                        <div className="houses row text-center">
                         {  
                             this.state.houses !== undefined && this.state.houses.map((house, _id) => {
                                 return (

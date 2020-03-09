@@ -22,7 +22,6 @@ const Header = ({children}) => {
             <div style={style}>    
                 <h3 style={h3Style}><Link className="menu-link" to='/'>home</Link></h3>
                 <h3 style={h3Style}><Link className="menu-link" to='/houses'>houses</Link></h3>
-                <h3 style={h3Style}><Link className="menu-link" to='/teachers'>teachers</Link></h3>
                 <h3 style={h3Style}><Link className="menu-link" to='/spells'>spells</Link></h3> 
             </div>
             {children}

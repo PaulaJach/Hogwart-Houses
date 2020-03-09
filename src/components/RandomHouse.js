@@ -4,6 +4,7 @@ const RandomHouse = (props) => {
     if (props.random === undefined) {
         return (<div></div>)
     }
+    
     return (
         <div className="mt-4 random-house">
             <h3>Congratulations!</h3>

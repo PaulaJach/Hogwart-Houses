@@ -15,7 +15,7 @@ const Header = ({children}) => {
     const h3Style = {
         paddingRight: "10px",
         color: "white",
-    }
+    };
     
     return (
         <div>
@@ -26,7 +26,7 @@ const Header = ({children}) => {
             </div>
             {children}
         </div>
-    )
+    );
 };
 
 export default Header;

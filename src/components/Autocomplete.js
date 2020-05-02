@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 const Autocomplete = (props) => {
     if (props.spell === undefined) {
         return (<div></div>)
-    }
+    };
     return (
         <div className="autocompleteContainer text-center">
             <ul className="listItems text-center">

@@ -16,7 +16,7 @@ class Houses extends React.Component {
             house: {},
             randomHouse: '',
             result: false,
-        }
+        };
 
         this.onHandleClick = this.onHandleClick.bind(this);
 
@@ -74,7 +74,7 @@ class Houses extends React.Component {
                         {info}
                 </div>
             </div>  
-        )
+        );
     }; 
 };
 export default Houses;

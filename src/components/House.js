@@ -15,6 +15,6 @@ const House = (props) => {
             </div>
         </div>
     )
-}
+};
 
 export default House;

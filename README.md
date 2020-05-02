@@ -1,3 +1,17 @@
+My own project to practice React and fetching data from Api.
+ 
+ I used:
+* React
+* React Router
+* Particles.js library
+* Harry Potter API - https://www.potterapi.com/
+* axios
+* Sass
+
+This app is created only for desktop mode.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
